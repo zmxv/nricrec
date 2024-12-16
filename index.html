@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NRIC Recovery</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1>NRIC Recovery</h1>
+  
+  <div class="input-container">
+    <div class="input-group">
+      <label for="birth-year">Year of birth:</label>
+      <select id="birth-year" name="birth-year">
+        <option value="">Select Year</option>
+        <script>
+          for (let year=2024; year>=1968; year--) {
+            document.write(`<option value="${year}">${year}</option>`);
+          }
+        </script>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="nric-end">Last 4 characters of NRIC:</label>
+      <input type="text" id="nric-end" name="nric-end" maxlength="4" pattern="\d{3}[A-Z]" placeholder="####">
+    </div>
+  </div>
+
+  <div>
+    <button id="recover-btn" class="recover-btn">Recover</button>
+  </div>
+
+  <footer>
+    <p>
+    This <a href="https://github.com/zmxv/nricrec">open-source</a> tool demonstrates that masking NRIC numbers by showing only the last 4 characters (e.g., "####123A") provides limited security value.
+    Given just the birth year and these 4 characters, the full NRIC can be recovered with minimal computation.
+    </p>
+    <p>
+    NRIC numbers should not be treated as sensitive information—they are identifiers, not authenticators.
+    Please refer to <a href="https://www.mddi.gov.sg/mddi-s-reply-to-media-queries-on-disclosure-of-nric-number-on-bizfile-system/">MDDI's post on NRIC</a> for more information. 
+    </p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
